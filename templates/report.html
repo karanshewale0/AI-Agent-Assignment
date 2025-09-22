@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* ... (your existing styles) ... */
+        .actions { margin-bottom: 20px; }
+        .actions a { text-decoration: none; padding: 8px 15px; background-color: #007bff; color: white; border-radius: 4px; margin-right: 10px; }
+        .actions a.download { background-color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="actions">
+        <a href="/">&larr; Back to Home</a>
+        <a href="{{ url_for('download_report', report_id=report.id) }}" class="download">Download as PDF</a>
+    </div>
+
+    <div class="report-container">
+        <h1>Report for: "{{ report.query }}"</h1>
+        
+        <h2>Generated Report</h2>
+        <pre>{{ report.report_content }}</pre>
+
+        <h2>Sources Used</h2>
+        <ul>
+            {% for source in report.sources %}
+                <li><a href="{{ source.url }}" target="_blank">{{ source.url }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

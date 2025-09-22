@@ -1,0 +1,6 @@
+flask
+openai
+tavily-python
+trafilatura
+pypdf
+python-dotenv
