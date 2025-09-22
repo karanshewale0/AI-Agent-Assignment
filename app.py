@@ -64,7 +64,7 @@ def summarize_text(query: str, content: str):
     prompt = f"""Based on the following content, create a structured report about the query: "{query}". The report should include: 1. **Key Points**: A bulleted list of the most important findings. 2. **Summary**: A concise summary of the overall information. Here is the content:\n---\n{content}\n---"""
     try:
         response = llm_client.chat.completions.create(
-            model="deepseek-coder:latest",
+            model="deepseek-r1:1.5b",
             messages=[{"role": "user", "content": prompt}],
         )
         return response.choices[0].message.content
